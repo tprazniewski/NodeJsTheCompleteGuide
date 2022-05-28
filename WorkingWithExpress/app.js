@@ -4,6 +4,7 @@ const adminRoutes = require('./routes/admin.js')
 const shopRouter = require('./routes/shop.js')
 
 const app = express()
+//thanks to the below line of code We are able to use req.body later on
 app.use(bodyParser.urlencoded({extended: false}))
 
 app.use('/admin', adminRoutes)
