@@ -7,6 +7,8 @@ const path = require('path')
 const app = express()
 //thanks to the below line of code We are able to use req.body later on
 app.use(bodyParser.urlencoded({extended: false}))
+//add css file coombining with the link tag in hmtl
+app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/admin', adminRoutes)
 app.use(shopRouter)
