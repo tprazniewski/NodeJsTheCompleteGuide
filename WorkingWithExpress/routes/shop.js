@@ -4,7 +4,7 @@ const path = require('path') // we need this module to avoid having the absolute
 
 router.get('/',(req, res, next) => {
   // res.send('<h1> Hello </h1>')
-  res.sendFile(path.join(__dirname, '../', 'views', 'shop.html'))
+  res.sendFile(path.join(__dirname, '..', 'views', 'shop.html'))
 })
 
 
