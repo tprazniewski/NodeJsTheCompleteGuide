@@ -7,6 +7,10 @@ const multer = require('multer');
 
 const feedRoutes = require('./routes/feed');
 const authRoutes = require('./routes/auth');
+const { gaphHttp } = require('express-graphql')
+const graphSchema = require('./graphql/schema')
+const graphResolver = require('./graphql/resolver')
+
 
 const app = express();
 
@@ -47,6 +51,11 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   next();
 });
+
+app.use('/graphql',gaphHttp({
+  schema: graphSchema,
+  resolver: graphResolver
+}))
 
 app.use('/feed', feedRoutes);
 app.use('/auth', authRoutes);
